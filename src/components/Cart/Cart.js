@@ -1,4 +1,5 @@
 import React from 'react';
+import './Cart.css'
 
 const Cart = ({cart , handleRemoveItem}) => {
 
@@ -21,7 +22,7 @@ const Cart = ({cart , handleRemoveItem}) => {
 
     return (
         <div>
-            <h3>Order Summary</h3>
+            <h3 className={cart.length === 2 ? `orange` : 'purple'}>Order Summary</h3>
             <h5>Order Quantity : {cart.length}</h5>
             {
                 cart.map(tshirt => <p
@@ -33,9 +34,16 @@ const Cart = ({cart , handleRemoveItem}) => {
                     <button onClick={ () => handleRemoveItem(tshirt)}>X</button>
                 </p>) 
             }
+            
             {
                 message
             }
+            {cart.length === 3 ? <p>Thin jon k gift dibea?</p> : <p>Kino kino</p>}
+
+            <p>And operator</p>
+            {cart.length === 2 && <h2>Double items</h2>}
+            <p>Or operator</p>
+            {cart.length === 4 || <p>4ta item nah</p>}
         </div>
     );
 };
